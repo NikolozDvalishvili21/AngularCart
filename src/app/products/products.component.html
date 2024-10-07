@@ -1,0 +1,31 @@
+<div class="whole-comp">
+  <div class="product-list">
+    <div *ngFor="let product of products" class="product-item">
+      <div class="infomain">
+        <img
+          [src]="product.photo"
+          alt="{{ product.name }}"
+          class="product-photo"
+        />
+        <div class="product-info">
+          <h2>{{ product.name }}</h2>
+          <p>Seller: {{ product.seller }}</p>
+          <p>Size: {{ product.size }}</p>
+          <p>Price: <b>${{ product.price }}</b></p>
+        </div>
+      </div>
+      <select class="quantities">
+        <option value="">Qty:1</option>
+        <option value="">Qty:2</option>
+        <option value="">Qty:3</option>
+        <option value="">Qty:4</option>
+        <option value="">Qty:5</option>
+        <option value="">Qty:6</option>
+        <option value="">Qty:7</option>
+        <option value="">Qty:8</option>
+        <option value="">Qty:9</option>
+        <option value="">Qty:10</option>
+      </select>
+    </div>
+  </div>
+</div>
