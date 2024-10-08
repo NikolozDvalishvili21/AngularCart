@@ -4,3 +4,9 @@
     align-items:start;
     gap:50px;
 }
+
+.checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
