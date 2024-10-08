@@ -32,4 +32,8 @@ export class ProductsComponent {
       size: 'Small',
     },
   ];
+
+  removeProduct(index: number) {
+    this.products.splice(index, 1);
+  }
 }

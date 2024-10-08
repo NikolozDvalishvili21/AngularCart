@@ -1,6 +1,6 @@
 <div class="whole-comp">
   <div class="product-list">
-    <div *ngFor="let product of products" class="product-item">
+    <div *ngFor="let product of products; let i = index" class="product-item">
       <div class="infomain">
         <img
           [src]="product.photo"
@@ -26,6 +26,9 @@
         <option value="">Qty:9</option>
         <option value="">Qty:10</option>
       </select>
+      <button class="remove-prod" (click)="removeProduct(i)">
+        Remove
+      </button>
     </div>
   </div>
 </div>

@@ -59,3 +59,14 @@ body {
   width: 100px;
   box-shadow: 0 0 3px 0px #ECEEF1;
 }
+
+.remove-prod {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+  color: red;
+  font-weight: 600;
+  border: 1px solid rgb(255, 0, 0, 0.3);
+}
