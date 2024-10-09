@@ -35,3 +35,12 @@ input:focus {
   color: #2b80fd;
   font-weight: 700;
 }
+
+.valid-coupon {
+  color: green;
+}
+
+.invalid-coupon {
+  color: red;
+}
+

@@ -1,5 +1,15 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CartService } from '../cart.service';
+import { CommonModule } from '@angular/common';
+
+interface Product {
+  name: string;
+  photo: string;
+  price: number;
+  seller: string;
+  size: string;
+  quantity: number;
+}
 
 @Component({
   selector: 'app-products',
@@ -9,31 +19,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent {
-  products = [
-    {
-      name: 'Air Force 1',
-      photo: 'https://placehold.jp/150x150.png',
-      price: 29.99,
-      seller: 'Nike',
-      size: '42',
-    },
-    {
-      name: 'Real Madrid Shirt',
-      photo: 'https://placehold.jp/150x150.png',
-      price: 49.99,
-      seller: 'RMAFC',
-      size: 'Large',
-    },
-    {
-      name: 'Real Madrid Shorts',
-      photo: 'https://placehold.jp/150x150.png',
-      price: 19.99,
-      seller: 'RMAFC',
-      size: 'Small',
-    },
-  ];
+  products: Product[] = [];
+
+  constructor(private cartService: CartService) {
+    this.products = this.cartService.getProducts();
+  }
 
   removeProduct(index: number) {
-    this.products.splice(index, 1);
+    this.cartService.removeProduct(index);
+    this.updateTotalPrice();
+  }
+
+  updateQuantity(index: number, event: any) {
+    const quantity = +event.target.value;
+    this.cartService.updateQuantity(index, quantity);
+    this.updateTotalPrice();
+  }
+
+  updateTotalPrice() {
+    this.cartService.updateTotalPrice();
   }
 }

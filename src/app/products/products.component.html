@@ -11,20 +11,13 @@
           <h2>{{ product.name }}</h2>
           <p>Seller: {{ product.seller }}</p>
           <p>Size: {{ product.size }}</p>
-          <p>Price: <b>${{ product.price }}</b></p>
+          <p>Price: <b>${{ product.price }}</b> x {{ product.quantity }}</p>
         </div>
       </div>
-      <select class="quantities">
-        <option value="">Qty:1</option>
-        <option value="">Qty:2</option>
-        <option value="">Qty:3</option>
-        <option value="">Qty:4</option>
-        <option value="">Qty:5</option>
-        <option value="">Qty:6</option>
-        <option value="">Qty:7</option>
-        <option value="">Qty:8</option>
-        <option value="">Qty:9</option>
-        <option value="">Qty:10</option>
+      <select class="quantities" (change)="updateQuantity(i, $event)">
+        <option *ngFor="let qty of [1,2,3,4,5,6,7,8,9,10]" [value]="qty" [selected]="qty === product.quantity">
+          Qty: {{ qty }}
+        </option>
       </select>
       <button class="remove-prod" (click)="removeProduct(i)">
         Remove

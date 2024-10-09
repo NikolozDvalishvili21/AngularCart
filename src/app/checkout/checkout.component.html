@@ -3,21 +3,17 @@
     <div class="price-count">
       <div class="total">
         <p>Subtotal:</p>
-        <p>$1400.37</p>
-      </div>
-      <div class="discount">
-        <p>Discount:</p>
-        <span class="red">- $0.00</span>
+        <p>${{ totalPrice.toFixed(2) }}</p>
       </div>
       <div class="tax">
         <p>Tax:</p>
-        <span class="green">+ $0.00</span>
+        <span class="green">+ ${{ tax }}</span>
       </div>
     </div>
     <hr />
     <div class="total-price">
       <p>Total:</p>
-      <span class="full-price">$1400.37</span>
+      <span class="full-price">${{ getFullPrice().toFixed(2) }}</span>
     </div>
     <button class="finish">
         Checkout
